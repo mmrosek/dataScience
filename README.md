@@ -1,2 +1,2 @@
-# Miscellaneous
-Various scripts used in different projects and purposes.
+# dataScience
+General data science topics researched in my free time..
