@@ -1,2 +1,2 @@
 # dataScience
-General data science topics researched in my free time..
+General data science topics researched in my free time.
