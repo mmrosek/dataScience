@@ -56,7 +56,6 @@ X_std = X_cent/np.std(X_cent, axis=1).reshape(-1,1)
 
 corr_dict = {'qb-wr1':0.47, 'qb-wr2':0.38,
              'qb-te1':0.41, 'qb-
-            '
             }
 
 # Ex: Player 1 and 3 are on the same team and historically 
@@ -120,21 +119,6 @@ r = norm.rvs(size=(n_rvs, n_obs))
 r_centered = r-(r.mean(axis=1).reshape(-1,1))
 (r_centered @ r_centered.T) / (n_obs-1) # Covariance matrix
 np.cov(r_centered) # Same result as line above
-
-### Numerical derivation of CDF --> PDF ###
-x=np.array(list(range(-1000,1000,2)))
-y=np.array(x)**2
-# np.diff --> discrete difference b/w consecutive elements 
-# --> needs to be divided by the length b/w elements to yield derivative
-deriv=np.diff(y) / (x[-1] - x[-2])
-plt.plot(deriv)
-plt.plot(x,y)
-
-cdf_x = np.linspace(5,15,11)
-cdf_y = np.array([0,0.02,0.06,0.14,0.3,0.52,0.72,0.84,0.94,0.98,1])
-plt.plot(cdf_x,cdf_y)
-deriv=np.diff(cdf_y) / (cdf_x[-1] - cdf_x[-2])
-plt.plot(deriv)
 
 
 

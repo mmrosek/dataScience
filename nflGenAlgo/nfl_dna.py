@@ -10,6 +10,17 @@ def new_plyr():
     idx = np.random.randint(len(plyrs))
     return plyrs[idx]
 
+### Not sure if these need to be class methods, may be better to have as external methods each instance calls
+def correlate_plyrs(self):
+    pass
+
+
+def draw_plyr_pdfs(plyrs, n_draws):
+    draws=np.zeros(shape=(len(plyrs), n_draws))
+    for plyr_idx in range(len(plyrs)):            
+        for draw_idx in range(n_draws):
+            a
+
 class DNA:
     def __init__(self, n_plyrs, verbose = False):
         self.plyrs = []
@@ -30,10 +41,7 @@ class DNA:
         if max_eval_perc > 1: max_eval_perc /= 100
         
         # Drawing from each player's pdf n_draws times
-        draws=np.zeros(shape=(self.n_plyrs, n_draws))
-        for plyr_idx in range(len(self.n_plyrs)):            
-            for draw_idx in range(n_draws):
-                draws[plyr_idx, draw_idx] = self.draw_plyr_pdf(self.plyrs[plyr_idx])
+        draws = draw_plyr_pdfs(self.plyrs, n_draws)
                 
         # Correlating draws between players and summing
         correlated_draws = self.correlate_plyrs(draws)
@@ -44,13 +52,6 @@ class DNA:
         max_eval_idx = n_draws * max_eval_perc
         self.fitness = correlated_lineup_totals[min_eval_idx:max_eval_idx].mean()
         
-    ### Not sure if these need to be class methods, may be better to have as external methods each instance calls
-    def correlate_plyrs(self):
-        pass
-
-    def draw_plyr_pdf(self):
-        pass
-
     def crossover(self, partner, midpt_bool):
 
         child = DNA(len(self.plyrs))
